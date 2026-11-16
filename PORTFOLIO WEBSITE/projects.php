@@ -74,7 +74,7 @@ $projects = [
           <?php endif; ?>
           <?php if (!empty($project['image'])): ?>
           <figure>
-            <img src="<?= htmlspecialchars($project['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($project['image_alt'], ENT_QUOTES, 'UTF-8') ?>" width="600" height="400">
+            <img src="<?= $project['image'] ?>" alt="<?= $project['image_alt'] ?>" width="600" height="400">
             <figcaption><?= $project['caption'] ?></figcaption>
           </figure>
           <?php endif; ?>
