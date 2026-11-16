@@ -1,3 +1,12 @@
+<?php
+$coreSubjects = [
+    'Data Structures' => 'arrays, linked lists, stacks, queues, trees, and choosing the right one.',
+    'Operating Systems' => 'processes, scheduling, memory, and how the machine shares its resources.',
+    'Logic Circuit Design' => 'gates, combinational and sequential circuits, built and tested on a breadboard.',
+    'Data Communications' => 'how data is encoded, sent, and checked across a network.',
+    'Software Engineering' => 'requirements, design, testing, and working in a team.',
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +21,7 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to Content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="index.php" aria-label="NC – Neil Concepcion, home">NC</a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="about.php" aria-current="page">About</a></li>
-          <li><a href="projects.php">Projects</a></li>
-          <li><a href="skills.php">Skills</a></li>
-          <li><a href="contact.php">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <?php require __DIR__ . '/header.php'; ?>
 
   <main id="main-content">
     <div class="container">
@@ -49,11 +45,9 @@
             <h2 id="coursework-title">Coursework</h2>
             <h3>Core subjects</h3>
             <ul class="course-list">
-              <li><strong>Data Structures:</strong> arrays, linked lists, stacks, queues, trees, and choosing the right one.</li>
-              <li><strong>Operating Systems:</strong> processes, scheduling, memory, and how the machine shares its resources.</li>
-              <li><strong>Logic Circuit Design:</strong> gates, combinational and sequential circuits, built and tested on a breadboard.</li>
-              <li><strong>Data Communications:</strong> how data is encoded, sent, and checked across a network.</li>
-              <li><strong>Software Engineering:</strong> requirements, design, testing, and working in a team.</li>
+              <?php foreach ($coreSubjects as $subject => $description): ?>
+              <li><strong><?= $subject ?>:</strong> <?= $description ?></li>
+              <?php endforeach; ?>
             </ul>
             <h3>Beyond the classroom</h3>
             <p>I restore and tune a classic motorcycle, build and troubleshoot PCs, and play tactical PC games. <mark>Each one trains the same habit: diagnose first, then fix.</mark></p>
@@ -72,11 +66,6 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>&copy; 2026 Neil Concepcion. All rights reserved.</p>
-      <p><small>Computer Engineering, Dr. Yanga&rsquo;s Colleges Inc. &middot; <a href="contact.php">Get in touch</a></small></p>
-    </div>
-  </footer>
+  <?php require __DIR__ . '/footer.php'; ?>
 </body>
 </html>

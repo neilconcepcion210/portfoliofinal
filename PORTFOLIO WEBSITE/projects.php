@@ -1,3 +1,41 @@
+<?php
+$projects = [
+    [
+        'category' => 'Mechanical',
+        'title' => 'Classic Bike Build',
+        'description' => 'Ongoing work on a Keeway Cafe Racer 152, focused on maintenance and custom touches.',
+        'highlights' => [
+            'Custom mechanical maintenance',
+            'Hardware upgrades',
+            'Bar-end side mirror fittings',
+            'Custom exhaust setup',
+            'CNC bolt customization',
+        ],
+        'image' => 'motor.jpg',
+        'image_alt' => 'Keeway Cafe Racer 152 classic bike build with custom exhaust and bar-end mirrors',
+        'caption' => 'Classic Scrambler Bike Build (Keeway Cafe Racer 152) Showcase',
+    ],
+    [
+        'category' => 'Web',
+        'title' => 'Personal Portfolio Website',
+        'description' => "The site you're on: a multi-page, responsive portfolio built with semantic HTML5 and an external CSS architecture.",
+        'highlights' => [
+            'Five pages with shared navigation',
+            'Mobile-first CSS with Flexbox and Grid',
+            'Accessible, keyboard-friendly, and print-ready',
+        ],
+    ],
+    [
+        'category' => 'Group project',
+        'title' => 'School of Psychology (SOP) Website',
+        'description' => 'A group web development project designed for the School of Psychology.',
+        'image' => 'sopfrontpage.jpg',
+        'image_alt' => 'School of Psychology Web Project Preview',
+        'caption' => 'School of Psychology (SOP) Group Web Project Showcase',
+    ],
+
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,69 +50,40 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to Content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="index.php" aria-label="NC – Neil Concepcion, home">NC</a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="projects.php" aria-current="page">Projects</a></li>
-          <li><a href="skills.php">Skills</a></li>
-          <li><a href="contact.php">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <?php require __DIR__ . '/header.php'; ?>
 
   <main id="main-content">
     <div class="container">
       <header class="page-title">
         <h1>Projects</h1>
-        <p>Three things I&rsquo;ve built, one with metal and two with code.</p>
+        <p>A selection of my projects and builds.</p>
       </header>
 
       <section class="project-grid" aria-label="Featured projects">
+        <?php foreach ($projects as $project): ?>
         <article class="card">
-          <span class="tag">Mechanical</span>
-          <h2>Classic Bike Build</h2>
-          <p>Ongoing work on a <strong>Keeway Cafe Racer 152</strong>, focused on maintenance and custom touches.</p>
+          <span class="tag"><?= $project['category'] ?></span>
+          <h2><?= $project['title'] ?></h2>
+          <p><?= $project['description'] ?></p>
+          <?php if (!empty($project['highlights'])): ?>
           <ul>
-            <li>Custom mechanical maintenance</li>
-            <li>Hardware upgrades</li>
-            <li>Bar-end side mirror fittings</li>
-            <li>Custom exhaust setup</li>
-            <li>CNC bolt customization</li>
+            <?php foreach ($project['highlights'] as $highlight): ?>
+            <li><?= $highlight ?></li>
+            <?php endforeach; ?>
           </ul>
-          <figure><img src="motor.jpg" alt="Keeway Cafe Racer 152 classic bike build with custom exhaust and bar-end mirrors" width="600" height="400" onerror="this.onerror=null;this.src='https://unsplash.com/photos/kVlCFms1DEY/download?force=true&amp;w=1200';"><figcaption>Classic Scrambler Bike Build (Keeway Cafe Racer 152) Showcase</figcaption></figure>
+          <?php endif; ?>
+          <?php if (!empty($project['image'])): ?>
+          <figure>
+            <img src="<?= htmlspecialchars($project['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($project['image_alt'], ENT_QUOTES, 'UTF-8') ?>" width="600" height="400">
+            <figcaption><?= $project['caption'] ?></figcaption>
+          </figure>
+          <?php endif; ?>
         </article>
-
-        <article class="card">
-          <span class="tag">Web</span>
-          <h2>Personal Portfolio Website</h2>
-          <p>The site you&rsquo;re on: a multi-page, responsive portfolio built with semantic HTML5 and an external CSS architecture.</p>
-          <ul>
-            <li>Five pages with shared navigation</li>
-            <li>Mobile-first CSS with Flexbox and Grid</li>
-            <li>Accessible, keyboard-friendly, and print-ready</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <span class="tag">Group project</span>
-          <h2>School of Psychology (SOP) Website</h2>
-          <p>A group web development project designed for the School of Psychology.</p>
-          <figure><img src="sopfrontpage.jpg" alt="School of Psychology Web Project Preview" width="600" height="400" onerror="this.onerror=null;this.src='https://picsum.photos/id/0/1200/800';"><figcaption>School of Psychology (SOP) Group Web Project Showcase</figcaption></figure>
-        </article>
+        <?php endforeach; ?>
       </section>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>&copy; 2026 Neil Concepcion. All rights reserved.</p>
-      <p><small>Computer Engineering, Dr. Yanga&rsquo;s Colleges Inc. &middot; <a href="contact.php">Get in touch</a></small></p>
-    </div>
-  </footer>
+  <?php require __DIR__ . '/footer.php'; ?>
 </body>
 </html>

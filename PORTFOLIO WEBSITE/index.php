@@ -12,20 +12,7 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to Content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="index.php" aria-label="NC – Neil Concepcion, home">NC</a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.php" aria-current="page">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="projects.php">Projects</a></li>
-          <li><a href="skills.php">Skills</a></li>
-          <li><a href="contact.php">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <?php require __DIR__ . '/header.php'; ?>
 
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
@@ -80,11 +67,6 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>&copy; 2026 Neil Concepcion. All rights reserved.</p>
-      <p><small>Computer Engineering, Dr. Yanga&rsquo;s Colleges Inc. &middot; <a href="contact.php">Get in touch</a></small></p>
-    </div>
-  </footer>
+  <?php require __DIR__ . '/footer.php'; ?>
 </body>
 </html>
