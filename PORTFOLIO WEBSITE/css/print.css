@@ -1,0 +1,97 @@
+
+.site-header,
+.main-nav,
+.site-footer,
+.skip-link,
+.cta-row,
+.form-actions,
+button,
+.btn {
+  display: none;
+}
+
+html,
+body {
+  background: #ffffff;
+  background-image: none;
+  color: #000000;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 24pt;
+  text-shadow: none;
+}
+
+h2 {
+  font-size: 18pt;
+}
+
+h3 {
+  font-size: 14pt;
+}
+
+p,
+li,
+dd,
+dt {
+  font-size: 12pt;
+  max-width: none;
+}
+
+small,
+figcaption {
+  font-size: 10pt;
+  color: #000000;
+}
+
+.hero,
+.card,
+.spec-plate,
+fieldset,
+blockquote,
+aside.note {
+  background: #ffffff;
+  color: #000000;
+  border: 1pt solid #000000;
+  box-shadow: none;
+  transform: none;
+  page-break-inside: avoid;
+}
+
+aside.note code,
+code {
+  background: #ffffff;
+  color: #000000;
+}
+
+a,
+a:link,
+a:visited {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.badge,
+.badge.alt {
+  color: #000000;
+  background: #ffffff;
+  border: 1pt solid #000000;
+  box-shadow: none;
+}
+
+img {
+  max-width: 100%;
+  page-break-inside: avoid;
+}
+
+.project-grid,
+.card-row,
+.about-layout {
+  display: block;
+}
+
+.card {
+  margin-bottom: 12pt;
+}
